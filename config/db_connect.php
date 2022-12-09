@@ -9,5 +9,3 @@ function dbConnect()
 
     return mysqli_connect($server, $username, $password, $dbname);
 }
-
-?>
