@@ -7,7 +7,13 @@ const content = document.querySelector(".content");
 iconParent.addEventListener("click", () => {
   icon.classList.toggle("fa-angles-left");
   icon.classList.toggle("fa-angles-right");
-  sidebar.classList.toggle("activeSidebar");
   activeElement.classList.toggle("hide");
   content.classList.toggle("content-expanded");
+  sidebar.classList.toggle("activeSidebar");
 });
+
+if (document.documentElement.clientWidth <= 768) {
+  sidebar.classList.remove("activeSidebar");
+  activeElement.classList.add("hide");
+  content.classList.toggle("content-expanded");
+}

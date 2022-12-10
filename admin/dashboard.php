@@ -12,7 +12,8 @@
 
 <body>
     <nav id="topbar">
-        <div class="logo">LOGO</div>
+        <div class="logo"><img src="../assets/image/logo.png" /></div>
+
         <ul>
             <li>Logout</li>
         </ul>

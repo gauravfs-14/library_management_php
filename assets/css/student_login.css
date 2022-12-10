@@ -1,0 +1,59 @@
+.wrapper {
+  height: calc(100vh - 60px);
+}
+.loginContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+.loginContainer .img {
+  width: 30%;
+  aspect-ratio: 1/1;
+  background-image: url("../image/library_image.jpg");
+  background-size: cover;
+  border-radius: 50%;
+}
+
+.loginContainer form {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.2rem;
+  background-color: antiquewhite;
+  gap: 1rem;
+  border-radius: 15px;
+}
+
+.loginContainer form > input {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  outline: none;
+  background-color: transparent;
+}
+
+.loginContainer form > h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.loginContainer form > input[type="submit"] {
+  border-radius: 1rem;
+  width: 100px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: transparent;
+  transition: 0.2s ease;
+}
+.loginContainer form > input[type="submit"]:hover {
+  background-color: rgb(241, 227, 208);
+}
+
+.loginContainer form p a {
+  font-weight: bold;
+}
