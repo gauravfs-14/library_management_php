@@ -63,7 +63,7 @@ CREATE TABLE `Book_Details` (
   `BOOK_Price` int(11) NOT NULL,
   `BOOK_Page` int(11) NOT NULL,
   `BOOK_Image` varchar(255) NOT NULL,
-  `BOOK_Add_Date` date NOT NULL DEFAULT current_timestamp()
+  `BOOK_Add_Date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

@@ -5,3 +5,8 @@
 - Open phpmyadmin
 - Click on Import
 - Import the sql file from ./sql
+
+### Admin Login Credentials
+
+- Username: admin
+- Password: admin

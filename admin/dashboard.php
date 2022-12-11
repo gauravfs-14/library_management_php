@@ -3,8 +3,6 @@ session_start();
 if (!isset($_SESSION['uname'])) {
     header("Location: http://localhost/library_management/admin/admin_login.php");
 }
-
-echo $_SESSION['uname'];
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +22,7 @@ echo $_SESSION['uname'];
         <div class="logo"><img src="../assets/image/logo.png" /></div>
 
         <ul>
-            <li>Logout</li>
+            <li><a href="../functions/logout.php">Logout</a> </li>
         </ul>
     </nav>
     <div class="wrapper">

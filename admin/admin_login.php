@@ -1,9 +1,8 @@
 <?php
+session_start();
 if (isset($_SESSION['uname'])) {
-    header("Location: http://localhost/library_management_system/admin/dashboard.php");
+    header("Location: http://localhost/library_management/admin/dashboard.php");
 }
-echo $_SESSION['uname'];
-
 ?>
 
 <!DOCTYPE html>
