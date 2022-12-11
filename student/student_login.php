@@ -15,7 +15,7 @@
     <nav id="topbar">
         <div class="logo"><img src="../assets/image/logo.png" /></div>
         <ul>
-            <li><a href="../admin/dashboard.php">Admin</a></li>
+            <li><a href="../admin/admin_login.php">Admin</a></li>
         </ul>
     </nav>
     <div class="wrapper">

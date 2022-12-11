@@ -89,8 +89,8 @@ a {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   background-color: rgb(241, 227, 208);
-  transition: 0.2s ease;
   padding-left: 80px;
+  transition: all 0.2s ease;
 }
 
 .hide {

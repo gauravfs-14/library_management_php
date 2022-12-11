@@ -1,3 +1,11 @@
+<?php
+if (isset($_SESSION['uname'])) {
+    header("Location: http://localhost/library_management_system/admin/dashboard.php");
+}
+echo $_SESSION['uname'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,20 +23,17 @@
     <nav id="topbar">
         <div class="logo"><img src="../assets/image/logo.png" /></div>
         <ul>
-            <li><a href="../admin/admin_login.php">Admin</a></li>
+            <li><a href="../admin/dashboard.php">Admin</a></li>
         </ul>
     </nav>
     <div class="wrapper">
         <div class="loginContainer">
             <div class="img"></div>
-            <form action="">
-                <h2>Student Sign Up</h2>
-                <input type="text" name="name" placeholder="Name">
-                <input type="email" name="email" id="" placeholder="Email">
+            <form action="../functions/adminLogin.php" method="POST">
+                <h2>Admin Login</h2>
+                <input type="text" name="username" id="" placeholder="Username">
                 <input type="password" name="password" id="" placeholder="Password">
-                <input type="password" name="password" id="" placeholder="Confirm Placeholder">
-                <input type="submit" value="Sign Up">
-                <p>Already have an account? <a href="student_login.php">Login</a></p>
+                <input type="submit" value="Login">
             </form>
 
         </div>
