@@ -10,3 +10,8 @@
 
 - Username: admin
 - Password: admin
+
+### Before Run
+
+Make sure you changed the database password to your password before running it on your local server.
+To change the password, navigate to /config/db_connect.php
