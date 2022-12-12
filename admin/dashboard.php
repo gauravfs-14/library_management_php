@@ -1,10 +1,10 @@
 <?php
 session_start();
-if (!isset($_SESSION['uname'])) {
-    header("Location: http://localhost/library_management/admin/admin_login.php");
-}
 if (isset($_SESSION['email'])) {
     header("Location: http://localhost/library_management/student/dashboard.php");
+}
+if (!isset($_SESSION['uname'])) {
+    header("Location: http://localhost/library_management/admin/admin_login.php");
 }
 ?>
 
@@ -22,7 +22,7 @@ if (isset($_SESSION['email'])) {
 
 <body>
     <nav id="topbar">
-        <div class="logo"><img src="../assets/image/logo.png" /></div>
+        <div class="logo"><a href="../index.php"><img src="../assets/image/logo.png" /></a></div>
 
         <ul>
             <li><a href="../functions/logout.php">Logout</a> </li>

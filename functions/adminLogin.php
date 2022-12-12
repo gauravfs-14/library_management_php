@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION)) {
-    echo "<script>location.href='http://localhost/library_management'</script>";
+    echo "<script>location.href='http://localhost/library_management/'</script>";
 }
 
 require("../config/db_connect.php");

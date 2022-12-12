@@ -13,7 +13,7 @@
 
 <body>
     <nav id="topbar">
-        <div class="logo"><img src="../assets/image/logo.png" /></div>
+        <div class="logo"><a href="../index.php"><img src="../assets/image/logo.png" /></a></div>
         <ul>
             <li><a href="../admin/admin_login.php">Admin</a></li>
         </ul>
