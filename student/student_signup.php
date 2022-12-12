@@ -21,12 +21,12 @@
     <div class="wrapper">
         <div class="loginContainer">
             <div class="img"></div>
-            <form action="">
+            <form action="../functions/studentSignUp.php" method="POST">
                 <h2>Student Sign Up</h2>
                 <input type="text" name="name" placeholder="Name">
                 <input type="email" name="email" id="" placeholder="Email">
                 <input type="password" name="password" id="" placeholder="Password">
-                <input type="password" name="password" id="" placeholder="Confirm Placeholder">
+                <input type="password" name="confirmPassword" id="" placeholder="Confirm Password">
                 <input type="submit" value="Sign Up">
                 <p>Already have an account? <a href="student_login.php">Login</a></p>
             </form>

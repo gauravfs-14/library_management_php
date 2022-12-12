@@ -1,10 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['uname'])) {
-    header("Location: http://localhost/library_management/admin/admin_login.php");
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,25 +18,6 @@ if (!isset($_SESSION['uname'])) {
             <li><a href="../functions/logout.php">Logout</a> </li>
         </ul>
     </nav>
-    <div class="wrapper">
-        <nav id="sidebar" class="activeSidebar">
-            <div class="iconParent">
-                <i class="fa-solid fa-angles-left icon"></i>
-            </div>
-            <ul>
-                <li class="active">Dashboard</li>
-                <li>Books</li>
-                <li>Author</li>
-                <li>Category</li>
-                <li>Issue</li>
-                <li>Publication</li>
-                <li>Students</li>
-            </ul>
-        </nav>
-        <div class="content">
-
-        </div>
-    </div>
     <script src="../assets/js/index.js"></script>
 </body>
 
