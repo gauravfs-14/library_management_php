@@ -1,6 +1,10 @@
 <?php
 require("../config/db_connect.php");
 
+if (isset($_SESSION)) {
+    echo "<script>location.href='http://localhost/library_management'</script>";
+}
+
 //check if data is received from the form
 if ($_POST) {
     $name = $_POST['name'];
@@ -24,7 +28,7 @@ if ($password !== $confirmPassword) {
     $user = mysqli_query($conn, "SELECT * FROM `Student_Details` WHERE SD_Email = '$email'");
     //check if user already exists
     if (mysqli_num_rows($user) == 0) {
-        $sql = "INSERT INTO `Student_Details` (`SD_ID`, `SD_Email`, `SD_Password`, `SD_Name`) VALUES (NULL, '$name', '$password', '$name');";
+        $sql = "INSERT INTO `Student_Details` (`SD_ID`, `SD_Email`, `SD_Password`, `SD_Name`) VALUES (NULL, '$email', '$password', '$name');";
         $result = mysqli_query($conn, $sql);
         //check if signup successful
         if ($result) {

@@ -3,6 +3,9 @@ session_start();
 if (isset($_SESSION['uname'])) {
     header("Location: http://localhost/library_management/admin/dashboard.php");
 }
+if (isset($_SESSION['email'])) {
+    header("Location: http://localhost/library_management/student/dashboard.php");
+}
 ?>
 
 <!DOCTYPE html>

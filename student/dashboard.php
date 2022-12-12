@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['email'])) {
+    header("Location: http://localhost/library_management/student/student_login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,6 +25,9 @@
             <li><a href="../functions/logout.php">Logout</a> </li>
         </ul>
     </nav>
+    <div class="wrapper">
+
+    </div>
     <script src="../assets/js/index.js"></script>
 </body>
 

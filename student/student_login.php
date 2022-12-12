@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_SESSION['email'])) {
+    header("Location: http://localhost/library_management/student/dashboard.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +28,7 @@
     <div class="wrapper">
         <div class="loginContainer">
             <div class="img"></div>
-            <form action="">
+            <form action="../functions/studentLogin.php" method="POST">
                 <h2>Student Login</h2>
                 <input type="email" name="email" id="" placeholder="Email">
                 <input type="password" name="password" id="" placeholder="Password">
