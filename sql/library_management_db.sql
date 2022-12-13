@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 08, 2022 at 07:25 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- Generation Time: Dec 13, 2022 at 08:10 PM
+-- Server version: 8.0.31-0ubuntu0.22.04.1
+-- PHP Version: 8.1.2-1ubuntu2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,10 +28,17 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `Admin_Details` (
-  `Admin_ID` int(11) NOT NULL,
-  `Admin_Username` varchar(50) NOT NULL,
-  `Admin_Password` varchar(50) NOT NULL
+  `Admin_ID` int NOT NULL,
+  `Admin_Username` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `Admin_Password` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `Admin_Details`
+--
+
+INSERT INTO `Admin_Details` (`Admin_ID`, `Admin_Username`, `Admin_Password`) VALUES
+(1, 'admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -40,9 +47,9 @@ CREATE TABLE `Admin_Details` (
 --
 
 CREATE TABLE `Author_Details` (
-  `AUT_ID` int(11) NOT NULL,
-  `AUT_Name` varchar(100) NOT NULL,
-  `AUT_Status` varchar(50) NOT NULL
+  `AUT_ID` int NOT NULL,
+  `AUT_Name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `AUT_Status` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -52,18 +59,18 @@ CREATE TABLE `Author_Details` (
 --
 
 CREATE TABLE `Book_Details` (
-  `BOOK_ID` int(11) NOT NULL,
-  `BOOK_Name` varchar(255) NOT NULL,
-  `BOOK_ISBN` varchar(255) NOT NULL,
-  `AUT_ID` int(11) NOT NULL,
-  `CAT_ID` int(11) NOT NULL,
-  `PUB_ID` int(11) NOT NULL,
+  `BOOK_ID` int NOT NULL,
+  `BOOK_Name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `BOOK_ISBN` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `AUT_ID` int NOT NULL,
+  `CAT_ID` int NOT NULL,
+  `PUB_ID` int NOT NULL,
   `BOOK_Pub_Date` date NOT NULL,
-  `BOOK_Stock` int(11) NOT NULL,
-  `BOOK_Price` int(11) NOT NULL,
-  `BOOK_Page` int(11) NOT NULL,
-  `BOOK_Image` varchar(255) NOT NULL,
-  `BOOK_Add_Date` date NOT NULL
+  `BOOK_Stock` int NOT NULL,
+  `BOOK_Price` int NOT NULL,
+  `BOOK_Page` int NOT NULL,
+  `BOOK_Image` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `BOOK_Add_Date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -73,9 +80,9 @@ CREATE TABLE `Book_Details` (
 --
 
 CREATE TABLE `Category_Details` (
-  `CAT_ID` int(11) NOT NULL,
-  `CAT_Name` varchar(100) NOT NULL,
-  `CAT_Status` varchar(50) NOT NULL
+  `CAT_ID` int NOT NULL,
+  `CAT_Name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `CAT_Status` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -85,12 +92,12 @@ CREATE TABLE `Category_Details` (
 --
 
 CREATE TABLE `Issue_Details` (
-  `ISS_ID` int(11) NOT NULL,
-  `BOOK_ID` int(11) NOT NULL,
-  `SD_ID` int(11) NOT NULL,
-  `ISS_From` date NOT NULL,
+  `ISS_ID` int NOT NULL,
+  `BOOK_ID` int NOT NULL,
+  `SD_ID` int NOT NULL,
+  `ISS_From` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `ISS_To` date NOT NULL,
-  `ISS_Status` varchar(50) NOT NULL
+  `ISS_Status` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -100,9 +107,9 @@ CREATE TABLE `Issue_Details` (
 --
 
 CREATE TABLE `Publication_Details` (
-  `PUB_ID` int(11) NOT NULL,
-  `PUB_Name` varchar(255) NOT NULL,
-  `PUB_Status` varchar(50) NOT NULL
+  `PUB_ID` int NOT NULL,
+  `PUB_Name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `PUB_Status` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -112,11 +119,19 @@ CREATE TABLE `Publication_Details` (
 --
 
 CREATE TABLE `Student_Details` (
-  `SD_ID` int(11) NOT NULL,
-  `SD_Email` varchar(255) NOT NULL,
-  `SD_Password` varchar(50) NOT NULL,
-  `SD_Name` varchar(255) NOT NULL
+  `SD_ID` int NOT NULL,
+  `SD_Email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `SD_Password` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `SD_Name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `Student_Details`
+--
+
+INSERT INTO `Student_Details` (`SD_ID`, `SD_Email`, `SD_Password`, `SD_Name`) VALUES
+(3, 'harish@harish.com', 'harish@harish.com', 'Harish Singh'),
+(4, 'joh@hohn.comn', 'john@john.com', 'John Doe');
 
 --
 -- Indexes for dumped tables
@@ -182,43 +197,43 @@ ALTER TABLE `Student_Details`
 -- AUTO_INCREMENT for table `Admin_Details`
 --
 ALTER TABLE `Admin_Details`
-  MODIFY `Admin_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Admin_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `Author_Details`
 --
 ALTER TABLE `Author_Details`
-  MODIFY `AUT_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `AUT_ID` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Book_Details`
 --
 ALTER TABLE `Book_Details`
-  MODIFY `BOOK_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `BOOK_ID` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Category_Details`
 --
 ALTER TABLE `Category_Details`
-  MODIFY `CAT_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `CAT_ID` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Issue_Details`
 --
 ALTER TABLE `Issue_Details`
-  MODIFY `ISS_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ISS_ID` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Publication_Details`
 --
 ALTER TABLE `Publication_Details`
-  MODIFY `PUB_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `PUB_ID` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Student_Details`
 --
 ALTER TABLE `Student_Details`
-  MODIFY `SD_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `SD_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables

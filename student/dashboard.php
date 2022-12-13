@@ -25,6 +25,7 @@ if (!isset($_SESSION['email'])) {
         <div class="logo"><a href="../index.php"><img src="../assets/image/logo.png" /></a></div>
 
         <ul>
+            <li>Welcome: <?php echo $_SESSION['name']; ?></li>
             <li><a href="../functions/logout.php">Logout</a> </li>
         </ul>
     </nav>

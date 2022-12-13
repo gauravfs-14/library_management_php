@@ -76,7 +76,10 @@ a {
   list-style: none;
   padding: 60px 0;
 }
-#sidebar ul li {
+#sidebar ul a {
+  width: 100%;
+}
+#sidebar ul a li {
   height: 50px;
   width: 100%;
   line-height: 50px;
@@ -106,4 +109,10 @@ a {
 
 .content-expanded {
   margin-left: 50px;
+}
+
+@media (max-width: 768px) {
+  .content {
+    margin-left: 50px !important;
+  }
 }
