@@ -18,7 +18,7 @@ require("../config/db_connect.php");
     <title>Library Management System</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../assets/css/index.css" />
-    <link rel="stylesheet" href="../assets/css/details.css">
+    <link rel="stylesheet" href="../assets/css/addCatPubAut.css">
 </head>
 
 <body>
@@ -42,7 +42,7 @@ require("../config/db_connect.php");
                     <li>Books</li>
                 </a>
                 <a href="./author.php">
-                    <li>Author</li>
+                    <li class="active">Author</li>
                 </a>
                 <a href="./category.php">
                     <li>Category</li>
@@ -51,7 +51,7 @@ require("../config/db_connect.php");
                     <li>Issue</li>
                 </a>
                 <a href="./publication.php">
-                    <li class="active">Publication</li>
+                    <li>Publication</li>
                 </a>
                 <a href="./student_details.php">
                     <li>Students</li>
@@ -59,46 +59,15 @@ require("../config/db_connect.php");
             </ul>
         </nav>
         <div class="content">
-            <h1>Publications</h1>
-            <a href="./addPublication.php">
-                <button>Add Publication</button>
-            </a>
-            <table>
-                <thead>
-                    <tr>
-                        <th>S.N.</th>
-                        <th>Publication Name</th>
-                        <th>Publication Status</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $res = mysqli_query($conn, "SELECT * FROM Publication_Details");
-                    if (mysqli_num_rows($res) == 0) {
-                        echo "<p>No records Found.</p>";
-                    } else {
-
-                        $i = 1;
-                        while ($row = mysqli_fetch_array($res)) {
-                            $id = $row['PUB_ID'];
-                            $name = $row['PUB_Name'];
-                            $status = $row['PUB_Status'];
-                    ?>
-                            <tr>
-                                <td><?php echo $i; ?></td>
-                                <td><?php echo $name; ?></td>
-                                <td><?php echo $status ?></td>
-                                <td><?php echo "<a href='../functions/deletePublication.php?id=" . $id . "'>" ?><i class="fa-solid fa-trash"></i></a></td>
-                            </tr>
-                    <?php
-                            $i++;
-                        }
-                    }
-                    ?>
-                </tbody>
-
-            </table>
+            <form action="../functions/addAuthor.php" method="POST">
+                <h2>Add Author</h2>
+                <input type="text" name="name" placeholder="Author Name">
+                <select name="status" id="">
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+                <input type="submit" value="Add Author">
+            </form>
         </div>
     </div>
     <script src="../assets/js/index.js"></script>

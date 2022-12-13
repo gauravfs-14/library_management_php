@@ -1,0 +1,41 @@
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+h1 {
+  text-align: center;
+}
+.content a {
+  width: 90%;
+  margin: 20px auto;
+}
+.content a button {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  background-color: antiquewhite;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+table {
+  min-width: 90%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+th {
+  border: 1px solid black;
+  padding: 10px;
+}
+td {
+  border: 1px solid black;
+  padding: 5px 10px;
+}
+table i {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
