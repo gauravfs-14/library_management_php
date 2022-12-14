@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 13, 2022 at 08:10 PM
+-- Generation Time: Dec 15, 2022 at 01:53 AM
 -- Server version: 8.0.31-0ubuntu0.22.04.1
 -- PHP Version: 8.1.2-1ubuntu2.9
 
@@ -52,6 +52,15 @@ CREATE TABLE `Author_Details` (
   `AUT_Status` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `Author_Details`
+--
+
+INSERT INTO `Author_Details` (`AUT_ID`, `AUT_Name`, `AUT_Status`) VALUES
+(3, 'Joseph Murphy', 'active'),
+(4, 'Napoleon Hill', 'active'),
+(6, 'Robert T. Kiyosaki', 'active');
+
 -- --------------------------------------------------------
 
 --
@@ -65,13 +74,21 @@ CREATE TABLE `Book_Details` (
   `AUT_ID` int NOT NULL,
   `CAT_ID` int NOT NULL,
   `PUB_ID` int NOT NULL,
-  `BOOK_Pub_Date` date NOT NULL,
+  `BOOK_Pub_Date` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `BOOK_Stock` int NOT NULL,
   `BOOK_Price` int NOT NULL,
   `BOOK_Page` int NOT NULL,
   `BOOK_Image` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `BOOK_Add_Date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `Book_Details`
+--
+
+INSERT INTO `Book_Details` (`BOOK_ID`, `BOOK_Name`, `BOOK_ISBN`, `AUT_ID`, `CAT_ID`, `PUB_ID`, `BOOK_Pub_Date`, `BOOK_Stock`, `BOOK_Price`, `BOOK_Page`, `BOOK_Image`, `BOOK_Add_Date`) VALUES
+(1, 'Think and Grow Rich', '9788192681047', 4, 2, 1, '1937', 5, 800, 242, '../assets/image/uploads/thinkandgrowrich.jpg', '2022-12-14 18:20:30'),
+(2, 'The Power of your Subconscious Mind', '164156152', 3, 2, 1, '1989', 5, 500, 288, '../assets/image/uploads/powerofsubconsciousmind.jpg', '2022-12-14 20:04:48');
 
 -- --------------------------------------------------------
 
@@ -84,6 +101,14 @@ CREATE TABLE `Category_Details` (
   `CAT_Name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `CAT_Status` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `Category_Details`
+--
+
+INSERT INTO `Category_Details` (`CAT_ID`, `CAT_Name`, `CAT_Status`) VALUES
+(2, 'Self Help', 'active'),
+(3, 'Self Growth', 'active');
 
 -- --------------------------------------------------------
 
@@ -112,6 +137,14 @@ CREATE TABLE `Publication_Details` (
   `PUB_Status` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `Publication_Details`
+--
+
+INSERT INTO `Publication_Details` (`PUB_ID`, `PUB_Name`, `PUB_Status`) VALUES
+(1, 'Pirates India', 'active'),
+(3, 'Ekta Books', 'active');
+
 -- --------------------------------------------------------
 
 --
@@ -131,7 +164,8 @@ CREATE TABLE `Student_Details` (
 
 INSERT INTO `Student_Details` (`SD_ID`, `SD_Email`, `SD_Password`, `SD_Name`) VALUES
 (3, 'harish@harish.com', 'harish@harish.com', 'Harish Singh'),
-(4, 'joh@hohn.comn', 'john@john.com', 'John Doe');
+(4, 'joh@hohn.comn', 'john@john.com', 'John Doe'),
+(5, 'manish@manish.com', 'manish', 'Manish Bhurtel');
 
 --
 -- Indexes for dumped tables
@@ -203,19 +237,19 @@ ALTER TABLE `Admin_Details`
 -- AUTO_INCREMENT for table `Author_Details`
 --
 ALTER TABLE `Author_Details`
-  MODIFY `AUT_ID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `AUT_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `Book_Details`
 --
 ALTER TABLE `Book_Details`
-  MODIFY `BOOK_ID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `BOOK_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `Category_Details`
 --
 ALTER TABLE `Category_Details`
-  MODIFY `CAT_ID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `CAT_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `Issue_Details`
@@ -227,13 +261,13 @@ ALTER TABLE `Issue_Details`
 -- AUTO_INCREMENT for table `Publication_Details`
 --
 ALTER TABLE `Publication_Details`
-  MODIFY `PUB_ID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `PUB_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `Student_Details`
 --
 ALTER TABLE `Student_Details`
-  MODIFY `SD_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `SD_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

@@ -38,4 +38,5 @@ td {
 table i {
   font-size: 1.2rem;
   cursor: pointer;
+  margin-right: 10px;
 }

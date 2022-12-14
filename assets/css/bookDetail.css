@@ -1,0 +1,18 @@
+.content h1 {
+  text-align: center;
+  margin: 40px;
+}
+.container {
+  display: flex;
+  gap: 5rem;
+}
+.container img {
+  width: 50%;
+  height: auto;
+}
+.container ul {
+  font-size: 1.2rem;
+}
+.container ul li {
+  margin: 10px;
+}

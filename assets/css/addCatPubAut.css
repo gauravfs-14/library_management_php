@@ -13,7 +13,8 @@
   border-radius: 15px;
 }
 .content form > input,
-.content form > select {
+.content form > select,
+.content form .select select {
   padding: 10px;
   border: 1px solid black;
   border-radius: 5px;
@@ -35,4 +36,12 @@
 }
 .content form > input[type="submit"]:hover {
   background-color: rgb(241, 227, 208);
+}
+.select {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+.select > select {
+  width: calc(100% / 3);
 }
