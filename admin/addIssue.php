@@ -18,7 +18,7 @@ require("../config/db_connect.php");
     <title>Library Management System</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../assets/css/index.css" />
-    <link rel="stylesheet" href="../assets/css/details.css">
+    <link rel="stylesheet" href="../assets/css/addCatPubAut.css">
 </head>
 
 <body>
@@ -48,52 +48,48 @@ require("../config/db_connect.php");
                     <li>Category</li>
                 </a>
                 <a href="./issue.php">
-                    <li>Issue</li>
+                    <li class="active">Issue</li>
                 </a>
                 <a href="./publication.php">
                     <li>Publication</li>
                 </a>
                 <a href="./student_details.php">
-                    <li class="active">Students</li>
+                    <li>Students</li>
                 </a>
             </ul>
         </nav>
         <div class="content">
-            <h1>Students Details</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>S.N.</th>
-                        <th>Student Name</th>
-                        <th>Student ID</th>
-                        <th>Student Email</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
+            <form action="../functions/addIssue.php" method="POST">
+                <h2>Create Issue</h2>
+                <select name="book" id="">
+                    <option value="" selected>Book Name</option>
                     <?php
-                    $res = mysqli_query($conn, "SELECT * FROM Student_Details");
-                    $i = 1;
-                    while ($row = mysqli_fetch_array($res)) {
-                        $id = $row['SD_ID'];
-                        $name = $row['SD_Name'];
-                        $email = $row['SD_Email'];
-                    ?>
-
-                        <tr>
-                            <td><?php echo $i; ?></td>
-                            <td><?php echo $name; ?></td>
-                            <td><?php echo $id; ?></td>
-                            <td><?php echo $email ?></td>
-                            <td><?php echo "<a href='../functions/deleteStudent.php?id=" . $id . "'>" ?><i class="fa-solid fa-trash"></i></a></td>
-                        </tr>
-                    <?php
-                        $i++;
+                    $bookSql = "SELECT * FROM `Book_Details`";
+                    $books = mysqli_query($conn, $bookSql);
+                    while ($book = mysqli_fetch_array($books)) {
+                        echo "<option value='" . $book['BOOK_ID'] . "'>" . $book['BOOK_Name'] . "</option>";
                     }
                     ?>
-                </tbody>
+                </select>
+                <select name="student" id="">
+                    <option value="" selected>Student Name</option>
+                    <?php
+                    $stdSql = "SELECT * FROM `Student_Details`";
+                    $students = mysqli_query($conn, $stdSql);
+                    while ($std = mysqli_fetch_array($students)) {
+                        echo "<option value='" . $std['SD_ID'] . "'>" . $std['SD_Name'] . "</option>";
+                    }
+                    ?>
+                </select>
 
-            </table>
+                <label for="data">Issue Till:</label>
+                <input type="date" name="issueTo" id="date">
+                <select name="status" id="">
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+                <input type="submit" value="Issue">
+            </form>
         </div>
     </div>
     <script src="../assets/js/index.js"></script>

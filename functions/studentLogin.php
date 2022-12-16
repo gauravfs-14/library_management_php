@@ -21,6 +21,7 @@ $res = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($res) > 0) {
     while ($row = mysqli_fetch_assoc($res)) {
+        $id = $row['SD_ID'];
         $email = $row['SD_Email'];
         $password = $row['SD_Password'];
         $name = $row['SD_Name'];
@@ -28,6 +29,7 @@ if (mysqli_num_rows($res) > 0) {
     if ($emailForm == $email && $password == $passwordForm) {
         $_SESSION['email'] = $email;
         $_SESSION['name'] = $name;
+        $_SESSION['stdID'] = $id;
         if ($_SESSION['email'] == $email && $_SESSION['name'] == $name) {
             session_write_close();
             echo "<script>alert('Login Successful')</script>";

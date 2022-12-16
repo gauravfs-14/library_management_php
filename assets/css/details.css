@@ -40,3 +40,13 @@ table i {
   cursor: pointer;
   margin-right: 10px;
 }
+.contentStudent {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: columnc;
+}
+.contentStudent h1 {
+  margin-bottom: 20px;
+}
