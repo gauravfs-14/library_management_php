@@ -16,7 +16,6 @@ if (isset($_SESSION['uname'])) {
         $stock = $_POST['stock'];
         $bookImage = $_FILES['bookImage'];
         $imageName = $bookImage['name'];
-
         $num = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `Book_Details` WHERE BOOK_Name = '$name'"));
         if ($num > 0) {
             echo "<script>alert('Book Already Exist!')</script>";

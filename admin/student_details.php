@@ -73,22 +73,26 @@ require("../config/db_connect.php");
                 <tbody>
                     <?php
                     $res = mysqli_query($conn, "SELECT * FROM Student_Details");
-                    $i = 1;
-                    while ($row = mysqli_fetch_array($res)) {
-                        $id = $row['SD_ID'];
-                        $name = $row['SD_Name'];
-                        $email = $row['SD_Email'];
+                    if (mysqli_num_rows($res) == 0) {
+                        echo "<p>No records Found.</p>";
+                    } else {
+                        $i = 1;
+                        while ($row = mysqli_fetch_array($res)) {
+                            $id = $row['SD_ID'];
+                            $name = $row['SD_Name'];
+                            $email = $row['SD_Email'];
                     ?>
 
-                        <tr>
-                            <td><?php echo $i; ?></td>
-                            <td><?php echo $name; ?></td>
-                            <td><?php echo $id; ?></td>
-                            <td><?php echo $email ?></td>
-                            <td><?php echo "<a href='../functions/deleteStudent.php?id=" . $id . "'>" ?><i class="fa-solid fa-trash"></i></a></td>
-                        </tr>
+                            <tr>
+                                <td><?php echo $i; ?></td>
+                                <td><?php echo $name; ?></td>
+                                <td><?php echo $id; ?></td>
+                                <td><?php echo $email ?></td>
+                                <td><?php echo "<a href='../functions/deleteStudent.php?id=" . $id . "'>" ?><i class="fa-solid fa-trash"></i></a></td>
+                            </tr>
                     <?php
-                        $i++;
+                            $i++;
+                        }
                     }
                     ?>
                 </tbody>

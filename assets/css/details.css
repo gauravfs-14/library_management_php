@@ -7,13 +7,21 @@
 h1 {
   text-align: center;
 }
+.col {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-direction: row-reverse;
+}
 .content a {
   width: 90%;
   margin: 20px auto;
 }
 .content a button {
   width: 100%;
-  padding: 10px;
+  padding: 14px;
   cursor: pointer;
   border: none;
   background-color: antiquewhite;
@@ -45,8 +53,36 @@ table i {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: columnc;
+  flex-direction: column;
 }
 .contentStudent h1 {
   margin-bottom: 20px;
+}
+.searchPanel {
+  width: 90%;
+  background-color: antiquewhite;
+  padding: 5px;
+  /* margin-bottom: 20px; */
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.searchPanel form {
+  width: 90%;
+}
+.searchPanel form > input[type="search"] {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  background-color: transparent;
+  width: calc(100% - 100px);
+}
+.searchPanel form > input[type="submit"] {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  background-color: transparent;
 }
