@@ -112,6 +112,7 @@ require("../config/db_connect.php");
                                         <?php echo "<a href='./bookDetail.php?id=" . $id . "'>" ?>
                                         <i class="fa-solid fa-eye"></i>
                                         </a>
+                                        <?php echo "<a href='./editBook.php?id=" . $id . "'>" ?><i class="fa-solid fa-pen-to-square"></i></a>
                                         <?php echo "<a href='../functions/deleteBook.php?id=" . $id . "'>" ?><i class="fa-solid fa-trash"></i></a>
                                     </td>
                                 </tr>
@@ -144,6 +145,7 @@ require("../config/db_connect.php");
                                         <?php echo "<a href='./bookDetail.php?id=" . $id . "'>" ?>
                                         <i class="fa-solid fa-eye"></i>
                                         </a>
+                                        <?php echo "<a href='./editBook.php?id=" . $id . "'>" ?><i class="fa-solid fa-pen-to-square"></i></a>
                                         <?php echo "<a href='../functions/deleteBook.php?id=" . $id . "'>" ?><i class="fa-solid fa-trash"></i></a>
                                     </td>
                                 </tr>

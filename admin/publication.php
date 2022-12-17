@@ -78,7 +78,6 @@ require("../config/db_connect.php");
                     if (mysqli_num_rows($res) == 0) {
                         echo "<p>No records Found.</p>";
                     } else {
-
                         $i = 1;
                         while ($row = mysqli_fetch_array($res)) {
                             $id = $row['PUB_ID'];
@@ -89,7 +88,9 @@ require("../config/db_connect.php");
                                 <td><?php echo $i; ?></td>
                                 <td><?php echo $name; ?></td>
                                 <td><?php echo $status ?></td>
-                                <td><?php echo "<a href='../functions/deletePublication.php?id=" . $id . "'>" ?><i class="fa-solid fa-trash"></i></a></td>
+                                <td>
+                                    <?php echo "<a href='./editPublication.php?id=" . $id . "'>" ?><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <?php echo "<a href='../functions/deletePublication.php?id=" . $id . "'>" ?><i class="fa-solid fa-trash"></i></a></td>
                             </tr>
                     <?php
                             $i++;

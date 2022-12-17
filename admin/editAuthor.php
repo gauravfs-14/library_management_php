@@ -1,10 +1,15 @@
 <?php
 session_start();
 if (isset($_SESSION['email'])) {
-    header("Location: http://localhost/library_management/student/dashboard.php");
+    header("Location: ../student/dashboard.php");
 }
 if (!isset($_SESSION['uname'])) {
-    header("Location: http://localhost/library_management/admin/admin_login.php");
+    header("Location: ./admin_login.php");
+}
+if (isset($_GET)) {
+    $id = $_GET["id"];
+} else {
+    header("Location: ./author.php");
 }
 require("../config/db_connect.php");
 ?>
@@ -18,7 +23,7 @@ require("../config/db_connect.php");
     <title>Library Management System</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../assets/css/index.css" />
-    <link rel="stylesheet" href="../assets/css/details.css">
+    <link rel="stylesheet" href="../assets/css/addCatPubAut.css">
 </head>
 
 <body>
@@ -59,48 +64,31 @@ require("../config/db_connect.php");
             </ul>
         </nav>
         <div class="content">
-            <h1>Authors</h1>
-            <a href="./addAuthor.php">
-                <button>Add Author</button>
-            </a>
-            <table>
-                <thead>
-                    <tr>
-                        <th>S.N.</th>
-                        <th>Author Name</th>
-                        <th>Author Status</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $res = mysqli_query($conn, "SELECT * FROM Author_Details ORDER BY AUT_Name ASC");
-                    if (mysqli_num_rows($res) == 0) {
-                        echo "<p>No records Found.</p>";
-                    } else {
-                        $i = 1;
-                        while ($row = mysqli_fetch_array($res)) {
-                            $id = $row['AUT_ID'];
-                            $name = $row['AUT_Name'];
-                            $status = $row['AUT_Status'];
-                    ?>
-                            <tr>
-                                <td><?php echo $i; ?></td>
-                                <td><?php echo $name; ?></td>
-                                <td><?php echo $status ?></td>
-                                <td>
-                                    <?php echo "<a href='./editAuthor.php?id=" . $id . "'>" ?><i class="fa-solid fa-pen-to-square"></i></a>
-                                    <?php echo "<a href='../functions/deleteAuthor.php?id=" . $id . "'>" ?><i class="fa-solid fa-trash"></i></a>
-                                </td>
-                            </tr>
-                    <?php
-                            $i++;
-                        }
+            <form action="../functions/editAuthor.php" method="POST">
+                <?php
+                $res = mysqli_query($conn, "SELECT * FROM Author_Details WHERE AUT_ID = $id");
+                if (mysqli_num_rows($res) == 0) {
+                    echo "<p>No records Found.</p>";
+                } else {
+                    while ($row = mysqli_fetch_array($res)) {
+                ?>
+                        <h2>Edit Author</h2>
+                        <input type="text" name="name" placeholder="Author Name" required <?php echo "value='" . $row['AUT_Name'] . "'"; ?>>
+                        <input type="hidden" name="id" <?php echo "value='$id'"; ?>>
+                        <select name="status" id="">
+                            <option value="active" <?php if ($row['AUT_Status'] == "active") {
+                                                        echo "selected";
+                                                    } ?>>Active</option>
+                            <option value="inactive" <?php if ($row['AUT_Status'] == "inactive") {
+                                                            echo "selected";
+                                                        } ?>>Inactive</option>
+                        </select>
+                        <input type="submit" value="Edit Author">
+                <?php
                     }
-                    ?>
-                </tbody>
-
-            </table>
+                }
+                ?>
+            </form>
         </div>
     </div>
     <script src="../assets/js/index.js"></script>

@@ -67,7 +67,7 @@ require("../config/db_connect.php");
                     <select name="category" id="">
                         <option value="" selected>Category</option>
                         <?php
-                        $catSql = "SELECT * FROM `Category_Details` ORDER BY CAT_Name ASC";
+                        $catSql = "SELECT * FROM `Category_Details` WHERE CAT_Status = 'active' ORDER BY CAT_Name ASC";
                         $categories = mysqli_query($conn, $catSql);
                         while ($cat = mysqli_fetch_array($categories)) {
                             echo "<option value='" . $cat['CAT_ID'] . "'>" . $cat['CAT_Name'] . "</option>";
@@ -77,7 +77,7 @@ require("../config/db_connect.php");
                     <select name="author" id="">
                         <option value="" selected>Author</option>
                         <?php
-                        $autSql = "SELECT * FROM `Author_Details` ORDER BY AUT_Name ASC";
+                        $autSql = "SELECT * FROM `Author_Details` WHERE AUT_Status = 'active' ORDER BY AUT_Name ASC";
                         $authors = mysqli_query($conn, $autSql);
                         while ($aut = mysqli_fetch_array($authors)) {
                             echo "<option value='" . $aut['AUT_ID'] . "'>" . $aut['AUT_Name'] . "</option>";
@@ -87,7 +87,7 @@ require("../config/db_connect.php");
                     <select name="publication" id="">
                         <option value="" selected>Publication</option>
                         <?php
-                        $pubSql = "SELECT * FROM `Publication_Details` ORDER BY PUB_Name ASC";
+                        $pubSql = "SELECT * FROM `Publication_Details` WHERE PUB_Status = 'active' ORDER BY PUB_Name ASC";
                         $publications = mysqli_query($conn, $pubSql);
                         while ($pub = mysqli_fetch_array($publications)) {
                             echo "<option value='" . $pub['PUB_ID'] . "'>" . $pub['PUB_Name'] . "</option>";
