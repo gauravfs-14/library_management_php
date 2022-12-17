@@ -88,7 +88,7 @@ require("../config/db_connect.php");
                     <?php
                     if (isset($_POST['submit']) && isset($_POST['search'])) {
                         $searchString = $_POST['search'];
-                        $res = mysqli_query($conn, "SELECT * FROM Book_Details JOIN Author_Details ON Book_Details.AUT_ID = Author_Details.AUT_ID JOIN Category_Details ON Book_Details.CAT_ID = Category_Details.CAT_ID WHERE Book_Details.BOOK_Name LIKE '%$searchString%' OR Book_Details.BOOK_ISBN = '$searchString' OR Author_Details.AUT_Name LIKE '%$searchString%' OR Category_Details.CAT_Name LIKE '%$searchString%'");
+                        $res = mysqli_query($conn, "SELECT * FROM Book_Details JOIN Author_Details ON Book_Details.AUT_ID = Author_Details.AUT_ID JOIN Category_Details ON Book_Details.CAT_ID = Category_Details.CAT_ID WHERE Book_Details.BOOK_Name LIKE '%$searchString%' OR Book_Details.BOOK_ISBN = '$searchString' OR Author_Details.AUT_Name LIKE '%$searchString%' OR Category_Details.CAT_Name LIKE '%$searchString%' ORDER BY Book_Details.BOOK_Name ASC");
                         if (mysqli_num_rows($res) == 0) {
                             echo "<p>No records Found.</p>";
                         } else {
@@ -120,7 +120,7 @@ require("../config/db_connect.php");
                             }
                         }
                     } else {
-                        $res = mysqli_query($conn, "SELECT * FROM Book_Details JOIN Author_Details ON Book_Details.AUT_ID = Author_Details.AUT_ID JOIN Category_Details ON Book_Details.CAT_ID = Category_Details.CAT_ID");
+                        $res = mysqli_query($conn, "SELECT * FROM Book_Details JOIN Author_Details ON Book_Details.AUT_ID = Author_Details.AUT_ID JOIN Category_Details ON Book_Details.CAT_ID = Category_Details.CAT_ID ORDER BY Book_Details.BOOK_Name ASC");
                         if (mysqli_num_rows($res) == 0) {
                             echo "<p>No records Found.</p>";
                         } else {

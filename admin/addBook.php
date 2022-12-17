@@ -61,13 +61,13 @@ require("../config/db_connect.php");
         <div class="content">
             <form action="../functions/addBook.php" method="POST" enctype="multipart/form-data">
                 <h2>Add Book</h2>
-                <input type="text" name="name" placeholder="Book Name">
-                <input type="text" name="isbn" placeholder="ISBN Number">
+                <input type="text" name="name" placeholder="Book Name" required>
+                <input type="text" name="isbn" placeholder="ISBN Number" required>
                 <div class="select">
                     <select name="category" id="">
                         <option value="" selected>Category</option>
                         <?php
-                        $catSql = "SELECT * FROM `Category_Details`";
+                        $catSql = "SELECT * FROM `Category_Details` ORDER BY CAT_Name ASC";
                         $categories = mysqli_query($conn, $catSql);
                         while ($cat = mysqli_fetch_array($categories)) {
                             echo "<option value='" . $cat['CAT_ID'] . "'>" . $cat['CAT_Name'] . "</option>";
@@ -77,7 +77,7 @@ require("../config/db_connect.php");
                     <select name="author" id="">
                         <option value="" selected>Author</option>
                         <?php
-                        $autSql = "SELECT * FROM `Author_Details`";
+                        $autSql = "SELECT * FROM `Author_Details` ORDER BY AUT_Name ASC";
                         $authors = mysqli_query($conn, $autSql);
                         while ($aut = mysqli_fetch_array($authors)) {
                             echo "<option value='" . $aut['AUT_ID'] . "'>" . $aut['AUT_Name'] . "</option>";
@@ -87,7 +87,7 @@ require("../config/db_connect.php");
                     <select name="publication" id="">
                         <option value="" selected>Publication</option>
                         <?php
-                        $pubSql = "SELECT * FROM `Publication_Details`";
+                        $pubSql = "SELECT * FROM `Publication_Details` ORDER BY PUB_Name ASC";
                         $publications = mysqli_query($conn, $pubSql);
                         while ($pub = mysqli_fetch_array($publications)) {
                             echo "<option value='" . $pub['PUB_ID'] . "'>" . $pub['PUB_Name'] . "</option>";
@@ -95,11 +95,11 @@ require("../config/db_connect.php");
                         ?>
                     </select>
                 </div>
-                <input type="text" name="publishDate" placeholder="Published Date">
-                <input type="number" name="page" id="" placeholder="No. of Page">
-                <input type="number" name="costPrice" placeholder="Cost Price" id="">
-                <input type="number" name="stock" placeholder="No. of Books" id="">
-                <input type="file" name="bookImage">
+                <input type="text" name="publishDate" placeholder="Published Date" required>
+                <input type="number" name="page" id="" placeholder="No. of Page" required>
+                <input type="number" name="costPrice" placeholder="Cost Price" required>
+                <input type="number" name="stock" placeholder="No. of Books" required>
+                <input type="file" name="bookImage" required>
                 <input type="submit" value="Add Book">
             </form>
         </div>

@@ -62,52 +62,64 @@ require("../config/db_connect.php")
         <div class="content">
             <h1>At a Glance</h1>
             <div class="cardContainer">
-                <div class="card">
-                    <i class="fa-solid fa-book"></i>
-                    <h2>Total Books</h2>
-                    <p>
-                        <?php
-                        echo mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `Book_Details`"));
-                        ?>
-                    </p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-pen-nib"></i>
-                    <h2>Total Authors</h2>
-                    <p>
-                        <?php
-                        echo mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `Author_Details` WHERE AUT_Status = 'active'"));
-                        ?>
-                    </p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-tags"></i>
-                    <h2>Total Categories</h2>
-                    <p><?php
-                        echo mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `Category_Details` WHERE CAT_Status = 'active'"));
-                        ?></p>
-                </div>
-                <div class="card">
-                    <i class="fa-sharp fa-solid fa-stamp"></i>
-                    <h2>Total Issue</h2>
-                    <p><?php
-                        echo mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `Issue_Details` WHERE ISS_Status = 'active'"));
-                        ?></p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-print"></i>
-                    <h2>Total Publications</h2>
-                    <p><?php
-                        echo mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `Publication_Details` WHERE PUB_Status = 'active'"));
-                        ?></p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-users"></i>
-                    <h2>Total Students</h2>
-                    <p><?php
-                        echo mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `Student_Details`"));
-                        ?></p>
-                </div>
+                <a href="./books.php">
+                    <div class="card">
+                        <i class="fa-solid fa-book"></i>
+                        <h2>Total Books</h2>
+                        <p>
+                            <?php
+                            echo mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `Book_Details`"));
+                            ?>
+                        </p>
+                    </div>
+                </a>
+                <a href="./author.php">
+                    <div class="card">
+                        <i class="fa-solid fa-pen-nib"></i>
+                        <h2>Total Authors</h2>
+                        <p>
+                            <?php
+                            echo mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `Author_Details` WHERE AUT_Status = 'active'"));
+                            ?>
+                        </p>
+                    </div>
+                </a>
+                <a href="./category.php">
+                    <div class="card">
+                        <i class="fa-solid fa-tags"></i>
+                        <h2>Total Categories</h2>
+                        <p><?php
+                            echo mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `Category_Details` WHERE CAT_Status = 'active'"));
+                            ?></p>
+                    </div>
+                </a>
+                <a href="./issue.php">
+                    <div class="card">
+                        <i class="fa-sharp fa-solid fa-stamp"></i>
+                        <h2>Total Issue</h2>
+                        <p><?php
+                            echo mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `Issue_Details` WHERE ISS_Status = 'active'"));
+                            ?></p>
+                    </div>
+                </a>
+                <a href="./publication.php">
+                    <div class="card">
+                        <i class="fa-solid fa-print"></i>
+                        <h2>Total Publications</h2>
+                        <p><?php
+                            echo mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `Publication_Details` WHERE PUB_Status = 'active'"));
+                            ?></p>
+                    </div>
+                </a>
+                <a href="./student_details.php">
+                    <div class="card">
+                        <i class="fa-solid fa-users"></i>
+                        <h2>Total Students</h2>
+                        <p><?php
+                            echo mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `Student_Details`"));
+                            ?></p>
+                    </div>
+                </a>
             </div>
         </div>
     </div>

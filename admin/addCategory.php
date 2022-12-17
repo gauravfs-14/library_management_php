@@ -61,7 +61,7 @@ require("../config/db_connect.php");
         <div class="content">
             <form action="../functions/addCategory.php" method="POST">
                 <h2>Add Category</h2>
-                <input type="text" name="name" placeholder="Category Name">
+                <input type="text" name="name" placeholder="Category Name" required>
                 <select name="status" id="">
                     <option value="active">Active</option>
                     <option value="inactive">Inactive</option>

@@ -61,7 +61,7 @@ require("../config/db_connect.php");
         <div class="content">
             <form action="../functions/addPublication.php" method="POST">
                 <h2>Add Publication</h2>
-                <input type="text" name="name" placeholder="Publication Name">
+                <input type="text" name="name" placeholder="Publication Name" required>
                 <select name="status" id="">
                     <option value="active">Active</option>
                     <option value="inactive">Inactive</option>

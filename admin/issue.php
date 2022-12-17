@@ -77,7 +77,7 @@ require("../config/db_connect.php");
                 </thead>
                 <tbody>
                     <?php
-                    $res = mysqli_query($conn, "SELECT * FROM Issue_Details JOIN Book_Details ON Book_Details.BOOK_ID = Issue_Details.BOOK_ID JOIN Student_Details ON Student_Details.SD_ID = Issue_Details.SD_ID");
+                    $res = mysqli_query($conn, "SELECT * FROM Issue_Details JOIN Book_Details ON Book_Details.BOOK_ID = Issue_Details.BOOK_ID JOIN Student_Details ON Student_Details.SD_ID = Issue_Details.SD_ID ORDER BY Issue_Details.ISS_From DESC");
                     if (mysqli_num_rows($res) == 0) {
                         echo "<p>No records Found.</p>";
                     } else {

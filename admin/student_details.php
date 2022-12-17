@@ -72,7 +72,7 @@ require("../config/db_connect.php");
                 </thead>
                 <tbody>
                     <?php
-                    $res = mysqli_query($conn, "SELECT * FROM Student_Details");
+                    $res = mysqli_query($conn, "SELECT * FROM Student_Details ORDER BY SD_Name ASC");
                     if (mysqli_num_rows($res) == 0) {
                         echo "<p>No records Found.</p>";
                     } else {

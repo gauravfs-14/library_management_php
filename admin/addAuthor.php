@@ -61,7 +61,7 @@ require("../config/db_connect.php");
         <div class="content">
             <form action="../functions/addAuthor.php" method="POST">
                 <h2>Add Author</h2>
-                <input type="text" name="name" placeholder="Author Name">
+                <input type="text" name="name" placeholder="Author Name" required>
                 <select name="status" id="">
                     <option value="active">Active</option>
                     <option value="inactive">Inactive</option>

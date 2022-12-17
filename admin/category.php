@@ -74,11 +74,10 @@ require("../config/db_connect.php");
                 </thead>
                 <tbody>
                     <?php
-                    $res = mysqli_query($conn, "SELECT * FROM Category_Details");
+                    $res = mysqli_query($conn, "SELECT * FROM Category_Details ORDER BY Category_Details.CAT_Name ASC");
                     if (mysqli_num_rows($res) == 0) {
                         echo "<p>No records Found.</p>";
                     } else {
-
                         $i = 1;
                         while ($row = mysqli_fetch_array($res)) {
                             $id = $row['CAT_ID'];

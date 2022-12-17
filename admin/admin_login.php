@@ -33,8 +33,8 @@ if (isset($_SESSION['email'])) {
             <div class="img"></div>
             <form action="../functions/adminLogin.php" method="POST">
                 <h2>Admin Login</h2>
-                <input type="text" name="username" id="" placeholder="Username">
-                <input type="password" name="password" id="" placeholder="Password">
+                <input type="text" name="username" id="" placeholder="Username" required>
+                <input type="password" name="password" id="" placeholder="Password" required>
                 <input type="submit" value="Login">
             </form>
 

@@ -83,7 +83,7 @@ require("../config/db_connect.php");
                 </select>
 
                 <label for="data">Issue Till:</label>
-                <input type="date" name="issueTo" id="date">
+                <input type="date" name="issueTo" id="date" required>
                 <select name="status" id="">
                     <option value="active">Active</option>
                     <option value="inactive">Inactive</option>

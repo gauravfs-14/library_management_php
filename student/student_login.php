@@ -33,8 +33,8 @@ if (isset($_SESSION['uname'])) {
             <div class="img"></div>
             <form action="../functions/studentLogin.php" method="POST">
                 <h2>Student Login</h2>
-                <input type="email" name="email" id="" placeholder="Email">
-                <input type="password" name="password" id="" placeholder="Password">
+                <input type="email" name="email" id="" placeholder="Email" required>
+                <input type="password" name="password" id="" placeholder="Password" required>
                 <input type="submit" value="Login">
                 <p>Don't have an account? <a href="student_signup.php">Sign Up</a></p>
             </form>

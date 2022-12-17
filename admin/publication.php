@@ -74,7 +74,7 @@ require("../config/db_connect.php");
                 </thead>
                 <tbody>
                     <?php
-                    $res = mysqli_query($conn, "SELECT * FROM Publication_Details");
+                    $res = mysqli_query($conn, "SELECT * FROM Publication_Details ORDER BY PUB_Name ASC");
                     if (mysqli_num_rows($res) == 0) {
                         echo "<p>No records Found.</p>";
                     } else {
