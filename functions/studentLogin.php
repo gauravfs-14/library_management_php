@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION)) {
-    echo "<script>location.href='http://localhost/library_management'</script>";
+    echo "<script>location.href='../index.php'</script>";
 }
 
 require("../config/db_connect.php");
@@ -12,7 +12,7 @@ if ($_POST) {
     $passwordForm = $_POST['password'];
 } else {
     echo "<script>alert('Some Error Occurred. Proceed Again!')</script>";
-    echo "<script>location.href='http://localhost/library_management/student/student_login.php'</script>";
+    echo "<script>location.href='../student/student_login.php'</script>";
 }
 
 $sql = "SELECT * FROM `Student_Details` WHERE SD_Email = '$emailForm'";
@@ -33,13 +33,13 @@ if (mysqli_num_rows($res) > 0) {
         if ($_SESSION['email'] == $email && $_SESSION['name'] == $name) {
             session_write_close();
             echo "<script>alert('Login Successful')</script>";
-            echo "<script>location.href='http://localhost/library_management/student/dashboard.php'</script>";
+            echo "<script>location.href='../student/dashboard.php'</script>";
         }
     } else {
         echo "<script>alert('Username or Password Incorrect')</script>";
-        echo "<script>location.href='http://localhost/library_management/student/student_login.php'</script>";
+        echo "<script>location.href='../student/student_login.php'</script>";
     }
 } else {
     echo "<script>alert('Username or Password Incorrect')</script>";
-    echo "<script>location.href='http://localhost/library_management/student/student_login.php'</script>";
+    echo "<script>location.href='../student/student_login.php'</script>";
 }

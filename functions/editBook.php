@@ -30,15 +30,15 @@ if (isset($_SESSION['uname'])) {
             if ($upload) {
             }
             echo "<script>alert('Book Details Edited Successfully!')</script>";
-            echo "<script>location.href='http://localhost/library_management/admin/books.php'</script>";
+            echo "<script>location.href='../admin/books.php'</script>";
         } else {
             echo "<script>alert('Some Error Occurred. Proceed Again!')</script>";
-            echo "<script>location.href='http://localhost/library_management/admin/books.php'</script>";
+            echo "<script>location.href='../admin/books.php'</script>";
         }
     } else {
         echo "<script>alert('Some Error Occurred. Proceed Again!')</script>";
-        echo "<script>location.href='http://localhost/library_management/admin/books.php'</script>";
+        echo "<script>location.href='../admin/books.php'</script>";
     }
 } else {
-    echo "<script>location.href='http://localhost/library_management'</script>";
+    echo "<script>location.href='../index.php'</script>";
 }

@@ -7,7 +7,7 @@ if (
     session_destroy()
 ) {
     echo "<script>alert('Logout Successful')</script>";
-    echo "<script>location.href='http://localhost/library_management'</script>";
+    echo "<script>location.href='../index.php'</script>";
 } else {
-    echo "<script>location.href='http://localhost/library_management'</script>";
+    echo "<script>location.href='../index.php'</script>";
 }

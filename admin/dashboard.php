@@ -1,10 +1,10 @@
 <?php
 session_start();
 if (isset($_SESSION['email'])) {
-    header("Location: http://localhost/library_management/student/dashboard.php");
+    header("Location: ../student/dashboard.php");
 }
 if (!isset($_SESSION['uname'])) {
-    header("Location: http://localhost/library_management/admin/admin_login.php");
+    header("Location: ../admin/admin_login.php");
 }
 require("../config/db_connect.php")
 ?>

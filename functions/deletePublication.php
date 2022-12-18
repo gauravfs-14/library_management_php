@@ -8,17 +8,17 @@ if (isset($_SESSION['uname'])) {
         $id = $_GET['id'];
     } else {
         echo "<script>alert('Some Error Occurred!')</script>";
-        echo "<script>location.href='http://localhost/library_management/admin/publication.php'</script>";
+        echo "<script>location.href='../admin/publication.php'</script>";
     }
     $sql = "DELETE FROM Publication_Details WHERE `Publication_Details`.`PUB_ID` = $id";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         echo "<script>alert('Delete Successful')</script>";
-        echo "<script>location.href='http://localhost/library_management/admin/publication.php'</script>";
+        echo "<script>location.href='../admin/publication.php'</script>";
     } else {
         echo "<script>alert('Some Error Occurred!')</script>";
-        echo "<script>location.href='http://localhost/library_management/admin/publication.php'</script>";
+        echo "<script>location.href='../admin/publication.php'</script>";
     }
 } else {
-    echo "<script>location.href='http://localhost/library_management'</script>";
+    echo "<script>location.href='../index.php'</script>";
 }

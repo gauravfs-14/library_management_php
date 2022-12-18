@@ -4,7 +4,7 @@ if (isset($_SESSION['email'])) {
     header("Location: ../student/dashboard.php");
 }
 if (!isset($_SESSION['uname'])) {
-    header("Location: ./admin_login.php");
+    header("Location: ../admin/admin_login.php");
 }
 if (isset($_GET)) {
     $id = $_GET["id"];

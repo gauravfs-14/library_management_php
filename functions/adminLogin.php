@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION)) {
-    echo "<script>location.href='http://localhost/library_management/'</script>";
+    echo "<script>location.href='../index.php'</script>";
 }
 
 require("../config/db_connect.php");
@@ -12,7 +12,7 @@ if ($_POST) {
     $passwordForm = $_POST['password'];
 } else {
     echo "<script>alert('Some Error Occurred. Proceed Again!')</script>";
-    echo "<script>location.href='http://localhost/library_management/admin/admin_login.php'</script>";
+    echo "<script>location.href='../admin/admin_login.php'</script>";
 }
 
 $sql = "SELECT * FROM `Admin_Details` WHERE Admin_Username = '$unameForm'";
@@ -31,13 +31,13 @@ if (mysqli_num_rows($res) > 0) {
         if ($_SESSION['uname'] == $uname) {
             session_write_close();
             echo "<script>alert('Login Successful')</script>";
-            echo "<script>location.href='http://localhost/library_management/admin/dashboard.php'</script>";
+            echo "<script>location.href='../admin/dashboard.php'</script>";
         }
     } else {
         echo "<script>alert('Username or Password Incorrect')</script>";
-        echo "<script>location.href='http://localhost/library_management/admin/admin_login.php'</script>";
+        echo "<script>location.href='../admin/admin_login.php'</script>";
     }
 } else {
     echo "<script>alert('Username or Password Incorrect')</script>";
-    echo "<script>location.href='http://localhost/library_management/admin/admin_login.php'</script>";
+    echo "<script>location.href='../admin/admin_login.php'</script>";
 }

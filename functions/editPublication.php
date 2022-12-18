@@ -10,17 +10,17 @@ if (isset($_SESSION['uname'])) {
         $id = $_POST['id'];
     } else {
         echo "<script>alert('Some Error Occurred. Proceed Again!')</script>";
-        echo "<script>location.href='http://localhost/library_management/admin/publication.php'</script>";
+        echo "<script>location.href='../admin/publication.php'</script>";
     }
     $sql = "UPDATE Publication_Details SET PUB_Name = '$name', PUB_Status = '$status' WHERE PUB_ID = '$id'";
     $res = mysqli_query($conn, $sql);
     if ($res) {
         echo "<script>alert('Publication Details Edited Successfully!')</script>";
-        echo "<script>location.href='http://localhost/library_management/admin/publication.php'</script>";
+        echo "<script>location.href='../admin/publication.php'</script>";
     } else {
         echo "<script>alert('Some Error Occurred. Proceed Again!')</script>";
-        echo "<script>location.href='http://localhost/library_management/admin/publication.php'</script>";
+        echo "<script>location.href='../admin/publication.php'</script>";
     }
 } else {
-    echo "<script>location.href='http://localhost/library_management'</script>";
+    echo "<script>location.href='../index.php'</script>";
 }
