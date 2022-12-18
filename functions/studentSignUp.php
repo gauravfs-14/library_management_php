@@ -1,6 +1,7 @@
 <?php
-require("../config/db_connect.php");
+require("../config/db_connect.php"); //get connection configuration
 
+//check if user is logged in
 if (isset($_SESSION)) {
     echo "<script>location.href='../index.php'</script>";
 }
