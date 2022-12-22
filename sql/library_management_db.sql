@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 17, 2022 at 07:03 PM
+-- Generation Time: Dec 22, 2022 at 09:02 AM
 -- Server version: 8.0.31-0ubuntu0.22.04.1
 -- PHP Version: 8.1.2-1ubuntu2.9
 
@@ -107,7 +107,7 @@ INSERT INTO `Book_Details` (`BOOK_ID`, `BOOK_Name`, `BOOK_ISBN`, `AUT_ID`, `CAT_
 (17, 'Pride And Prejudice', '9789937105088', 15, 16, 8, '2008 AD', 1, 250, 264, '../assets/image/uploads/319521530_880677653379892_4522627701494697873_n.jpg', '2022-12-17 11:35:01'),
 (18, 'Great Expectations', '9789937101684', 13, 17, 8, '2005 AD', 1, 250, 192, '../assets/image/uploads/319965651_1337852403653646_5971137309607279488_n.jpg', '2022-12-17 11:38:19'),
 (19, 'The Adventures of Sherlock Holmes', '9993314439', 17, 17, 8, '2003 AD', 1, 250, 240, '../assets/image/uploads/319195555_1034632844605949_1924828935834565133_n (1).jpg', '2022-12-17 11:41:32'),
-(20, 'Adventures of Huckleberry Finn', '9789937105064', 18, 16, 8, '2005 AD', 1, 250, 232, '../assets/image/uploads/320122711_1514438452408342_3388742109612255698_n.jpg', '2022-12-17 11:44:18'),
+(20, 'Adventures of Huckleberry Finn', '9789937105064', 18, 16, 8, '2005 AD', 1, 250, 232, '../assets/image/uploads/adventureofhuckleberryfinn.jpg', '2022-12-17 11:44:18'),
 (21, 'The Scarlet Pimpernel', '978937101691', 19, 16, 8, '2008 AD', 1, 250, 192, '../assets/image/uploads/319164572_1341476616585449_6848779560714184272_n.jpg', '2022-12-17 11:47:07'),
 (22, 'Tales from Shakespeare', '9789937105095', 20, 18, 8, '2008 AD', 1, 250, 224, '../assets/image/uploads/319803564_690106835844183_7073816909846158453_n.jpg', '2022-12-17 11:49:56'),
 (23, 'Max Well Encyclopedia of Questions and Answers', '9788182529274', 21, 12, 14, '2016 AD', 1, 1000, 256, '../assets/image/uploads/318634749_817424752662567_3670172311618611952_n.jpg', '2022-12-17 11:55:55'),
@@ -160,7 +160,7 @@ CREATE TABLE `Issue_Details` (
 --
 
 INSERT INTO `Issue_Details` (`ISS_ID`, `BOOK_ID`, `SD_ID`, `ISS_From`, `ISS_To`, `ISS_Status`) VALUES
-(7, 24, 9, '2022-12-17 12:50:37', '2022-12-31', 'active');
+(7, 24, 9, '2022-12-17 12:50:37', '2023-01-03', 'active');
 
 -- --------------------------------------------------------
 
@@ -280,19 +280,19 @@ ALTER TABLE `Admin_Details`
 -- AUTO_INCREMENT for table `Author_Details`
 --
 ALTER TABLE `Author_Details`
-  MODIFY `AUT_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `AUT_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `Book_Details`
 --
 ALTER TABLE `Book_Details`
-  MODIFY `BOOK_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `BOOK_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `Category_Details`
 --
 ALTER TABLE `Category_Details`
-  MODIFY `CAT_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `CAT_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `Issue_Details`
