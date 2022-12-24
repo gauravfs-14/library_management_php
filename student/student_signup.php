@@ -30,18 +30,20 @@ if (isset($_SESSION['uname'])) {
     <div class="wrapper">
         <div class="loginContainer">
             <div class="img"></div>
-            <form action="../functions/studentSignUp.php" method="POST">
+            <form action="../functions/studentSignUp.php" method="POST" id="signup">
                 <h2>Student Sign Up</h2>
-                <input type="text" name="name" placeholder="Name" class="name" required>
-                <input type="email" name="email" id="" placeholder="Email" class="email" required>
-                <input type="password" name="password" id="" placeholder="Password" class="password" required>
-                <input type="password" name="confirmPassword" id="" placeholder="Confirm Password" class="confirmPassword" required>
+                <p id="message"></p>
+                <input type="text" name="name" placeholder="Name" class="name" required id="name">
+                <input type="email" name="email" id="email" placeholder="Email" class="email" required>
+                <input type="password" name="password" id="password" placeholder="Password" class="password" onchange="print()" required>
+                <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" class="confirmPassword" required>
                 <input type="submit" value="Sign Up">
                 <p>Already have an account? <a href="student_login.php">Login</a></p>
             </form>
         </div>
     </div>
     <script src="../assets/js/index.js"></script>
+    <script src="../assets/js/student_signup.js"></script>
 </body>
 
 </html>
