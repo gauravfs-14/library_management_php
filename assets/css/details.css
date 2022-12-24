@@ -20,7 +20,8 @@ h1 {
   width: 90%;
   margin: 20px auto;
 }
-.content a button {
+.content a button,
+.contentStudent a button {
   width: 100%;
   padding: 14px;
   cursor: pointer;
@@ -59,11 +60,13 @@ table i {
 .contentStudent h1 {
   margin-bottom: 20px;
 }
+.contentStudent table {
+  margin-top: 20px;
+}
 .searchPanel {
   width: 90%;
   background-color: antiquewhite;
   padding: 5px;
-  /* margin-bottom: 20px; */
   border-radius: 10px;
   display: flex;
   justify-content: center;

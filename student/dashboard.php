@@ -34,6 +34,9 @@ require("../config/db_connect.php")
     <div class="wrapper">
         <div class="contentStudent">
             <h1>Books Issued</h1>
+            <a href="./availableBooks.php">
+                <button>Browser Books In Library</button>
+            </a>
             <table>
                 <thead>
                     <tr>

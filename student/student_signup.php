@@ -30,7 +30,7 @@ if (isset($_SESSION['uname'])) {
     <div class="wrapper">
         <div class="loginContainer">
             <div class="img"></div>
-            <form action="../functions/studentSignUp.php" method="POST" id="signup">
+            <form action="../functions/studentSignUp.php" method="POST" id="signup" onsubmit="return validate()">
                 <h2>Student Sign Up</h2>
                 <p id="message"></p>
                 <input type="text" name="name" placeholder="Name" class="name" required id="name">
