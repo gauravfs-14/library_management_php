@@ -67,7 +67,10 @@ require("../config/db_connect.php");
                     $bookSql = "SELECT * FROM `Book_Details`";
                     $books = mysqli_query($conn, $bookSql);
                     while ($book = mysqli_fetch_array($books)) {
-                        echo "<option value='" . $book['BOOK_ID'] . "'>" . $book['BOOK_Name'] . "</option>";
+                        $iss = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM Issue_Details WHERE BOOK_ID ='" . $book['BOOK_ID'] . "'"));
+                        if ($book['BOOK_Stock'] - $iss > 0) {
+                            echo "<option value='" . $book['BOOK_ID'] . "'>" . $book['BOOK_Name'] . "</option>";
+                        }
                     }
                     ?>
                 </select>
