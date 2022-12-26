@@ -35,7 +35,8 @@ if (isset($_SESSION['uname'])) {
                 <p id="message"></p>
                 <input type="text" name="name" placeholder="Name" class="name" required id="name">
                 <input type="email" name="email" id="email" placeholder="Email" class="email" required>
-                <input type="password" name="password" id="password" placeholder="Password" class="password" onchange="print()" required>
+                <input type="password" name="password" id="password" placeholder="Password" class="password" required>
+
                 <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" class="confirmPassword" required>
                 <input type="submit" value="Sign Up">
                 <p>Already have an account? <a href="student_login.php">Login</a></p>

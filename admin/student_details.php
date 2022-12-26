@@ -86,7 +86,13 @@ require("../config/db_connect.php");
                             <tr>
                                 <td><?php echo $i; ?></td>
                                 <td><?php echo $name; ?></td>
-                                <td><?php echo $id; ?></td>
+                                <td><?php
+                                    echo $id;
+                                    $iss = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM Issue_Details WHERE SD_ID ='" . $id . "'"));
+                                    if ($iss > 0) {
+                                        echo " (" . $iss . " issues open)";
+                                    }
+                                    ?></td>
                                 <td><?php echo $email ?></td>
                                 <td> <a href="<?php echo "../functions/deleteStudent.php?id=$id" ?>" onclick="return confirm('Are you sure?')">
                                         <i class="fa-solid fa-trash"></i>
