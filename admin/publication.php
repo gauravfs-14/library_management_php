@@ -90,7 +90,10 @@ require("../config/db_connect.php");
                                 <td><?php echo $status ?></td>
                                 <td>
                                     <?php echo "<a href='./editPublication.php?id=" . $id . "'>" ?><i class="fa-solid fa-pen-to-square"></i></a>
-                                    <?php echo "<a href='../functions/deletePublication.php?id=" . $id . "'>" ?><i class="fa-solid fa-trash"></i></a></td>
+                                    <a href="<?php echo "../functions/deleteBook.php?id=$id" ?>" onclick="return confirm('Are you sure? Deleting publication will delete every book associated with the publication!')">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
+                                </td>
                             </tr>
                     <?php
                             $i++;

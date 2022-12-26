@@ -99,7 +99,9 @@ require("../config/db_connect.php");
                                 <td><?php echo $issTo ?></td>
                                 <td>
                                     <?php echo "<a href='./editIssue.php?id=" . $id . "'>" ?><i class="fa-solid fa-pen-to-square"></i></a>
-                                    <?php echo "<a href='../functions/deleteIssue.php?id=" . $id . "'>" ?><i class="fa-solid fa-trash"></i></a>
+                                    <a href="<?php echo "../functions/deleteIssue.php?id=$id" ?>" onclick="return confirm('Are you sure?')">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
                                 </td>
                             </tr>
                     <?php

@@ -88,7 +88,9 @@ require("../config/db_connect.php");
                                 <td><?php echo $name; ?></td>
                                 <td><?php echo $id; ?></td>
                                 <td><?php echo $email ?></td>
-                                <td><?php echo "<a href='../functions/deleteStudent.php?id=" . $id . "'>" ?><i class="fa-solid fa-trash"></i></a></td>
+                                <td> <a href="<?php echo "../functions/deleteStudent.php?id=$id" ?>" onclick="return confirm('Are you sure?')">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a></td>
                             </tr>
                     <?php
                             $i++;

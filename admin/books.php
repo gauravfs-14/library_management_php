@@ -80,7 +80,7 @@ require("../config/db_connect.php");
                         <th>ISBN</th>
                         <th>Author</th>
                         <th>Category</th>
-                        <th>Stock</th>
+                        <th>Issue Status</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -89,69 +89,47 @@ require("../config/db_connect.php");
                     if (isset($_POST['submit']) && isset($_POST['search'])) {
                         $searchString = $_POST['search'];
                         $res = mysqli_query($conn, "SELECT * FROM Book_Details JOIN Author_Details ON Book_Details.AUT_ID = Author_Details.AUT_ID JOIN Category_Details ON Book_Details.CAT_ID = Category_Details.CAT_ID WHERE Book_Details.BOOK_Name LIKE '%$searchString%' OR Book_Details.BOOK_ISBN = '$searchString' OR Author_Details.AUT_Name LIKE '%$searchString%' OR Category_Details.CAT_Name LIKE '%$searchString%' ORDER BY Book_Details.BOOK_Name ASC");
-                        if (mysqli_num_rows($res) == 0) {
-                            echo "<p>No records Found.</p>";
-                        } else {
-                            $i = 1;
-                            while ($row = mysqli_fetch_array($res)) {
-                                $id = $row['BOOK_ID'];
-                                $name = $row['BOOK_Name'];
-                                $isbn = $row['BOOK_ISBN'];
-                                $author = $row['AUT_Name'];
-                                $category = $row['CAT_Name'];
-                                $stock = $row['BOOK_Stock'];
-                    ?>
-                                <tr>
-                                    <td><?php echo $i; ?></td>
-                                    <td><?php echo $name; ?></td>
-                                    <td><?php echo $isbn ?></td>
-                                    <td><?php echo $author ?></td>
-                                    <td><?php echo $category ?></td>
-                                    <td><?php echo $stock ?></td>
-                                    <td>
-                                        <?php echo "<a href='./bookDetail.php?id=" . $id . "'>" ?>
-                                        <i class="fa-solid fa-eye"></i>
-                                        </a>
-                                        <?php echo "<a href='./editBook.php?id=" . $id . "'>" ?><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <?php echo "<a href='../functions/deleteBook.php?id=" . $id . "'>" ?><i class="fa-solid fa-trash"></i></a>
-                                    </td>
-                                </tr>
-                            <?php
-                                $i++;
-                            }
-                        }
                     } else {
                         $res = mysqli_query($conn, "SELECT * FROM Book_Details JOIN Author_Details ON Book_Details.AUT_ID = Author_Details.AUT_ID JOIN Category_Details ON Book_Details.CAT_ID = Category_Details.CAT_ID ORDER BY Book_Details.BOOK_Name ASC");
-                        if (mysqli_num_rows($res) == 0) {
-                            echo "<p>No records Found.</p>";
-                        } else {
-                            $i = 1;
-                            while ($row = mysqli_fetch_array($res)) {
-                                $id = $row['BOOK_ID'];
-                                $name = $row['BOOK_Name'];
-                                $isbn = $row['BOOK_ISBN'];
-                                $author = $row['AUT_Name'];
-                                $category = $row['CAT_Name'];
-                                $stock = $row['BOOK_Stock'];
-                            ?>
-                                <tr>
-                                    <td><?php echo $i; ?></td>
-                                    <td><?php echo $name; ?></td>
-                                    <td><?php echo $isbn ?></td>
-                                    <td><?php echo $author ?></td>
-                                    <td><?php echo $category ?></td>
-                                    <td><?php echo $stock ?></td>
-                                    <td>
-                                        <?php echo "<a href='./bookDetail.php?id=" . $id . "'>" ?>
-                                        <i class="fa-solid fa-eye"></i>
-                                        </a>
-                                        <?php echo "<a href='./editBook.php?id=" . $id . "'>" ?><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <?php echo "<a href='../functions/deleteBook.php?id=" . $id . "'>" ?><i class="fa-solid fa-trash"></i></a>
-                                    </td>
-                                </tr>
+                    }
+                    if (mysqli_num_rows($res) == 0) {
+                        echo "<p>No records Found.</p>";
+                    } else {
+                        $i = 1;
+                        while ($row = mysqli_fetch_array($res)) {
+                            $id = $row['BOOK_ID'];
+                            $name = $row['BOOK_Name'];
+                            $isbn = $row['BOOK_ISBN'];
+                            $author = $row['AUT_Name'];
+                            $category = $row['CAT_Name'];
+                            $stock = $row['BOOK_Stock'];
+                    ?>
+                            <tr>
+                                <td><?php echo $i; ?></td>
+                                <td><?php echo $name; ?></td>
+                                <td><?php echo $isbn ?></td>
+                                <td><?php echo $author ?></td>
+                                <td><?php echo $category ?></td>
+                                <td><?php
+                                    $issue = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM Issue_Details WHERE BOOK_ID = $id"));
+                                    if ($stock - $issue > 0) {
+                                        echo "Available for issue";
+                                    } else {
+                                        echo "Not available for issue";
+                                    }
+                                    ?></td>
+                                <td>
+                                    <?php echo "<a href='./bookDetail.php?id=" . $id . "'>" ?>
+                                    <i class="fa-solid fa-eye"></i>
+                                    </a>
+                                    <?php echo "<a href='./editBook.php?id=" . $id . "'>" ?><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="<?php echo "../functions/deleteBook.php?id=$id" ?>" onclick="return confirm('Are you sure?')">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
                     <?php
-                                $i++;
-                            }
+                            $i++;
                         }
                     }
                     ?>

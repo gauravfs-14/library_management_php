@@ -36,6 +36,7 @@ table {
   border-collapse: collapse;
   margin: 0 auto;
   overflow-x: auto;
+  margin-bottom: 30px;
 }
 th {
   border: 1px solid black;

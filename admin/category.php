@@ -90,7 +90,10 @@ require("../config/db_connect.php");
                                 <td><?php echo $status ?></td>
                                 <td>
                                     <?php echo "<a href='./editCategory.php?id=" . $id . "'>" ?><i class="fa-solid fa-pen-to-square"></i></a>
-                                    <?php echo "<a href='../functions/deleteCategory.php?id=" . $id . "'>" ?><i class="fa-solid fa-trash"></i></a></td>
+                                    <a href="<?php echo "../functions/deleteCategory.php?id=$id" ?>" onclick="return confirm('Are you sure? Deleting category will delete books associated with the category!')">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
+                                </td>
                             </tr>
                     <?php
                             $i++;
